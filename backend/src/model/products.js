@@ -36,6 +36,15 @@ const productsDB = {
       console.error(err);
       throw err; // You can choose to handle the error differently here
     }
+  },
+
+  editProduct: async function (product_id, stockquantity) {
+    try {
+      const result = await sql `UPDATE homesteadhaven.products SET stockquantity = ${stockquantity} WHERE productid = ${product_id}`
+      return result
+    } catch (err) {
+      console.error(error)
+    }
   }
 };
 
